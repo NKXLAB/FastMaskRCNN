@@ -239,7 +239,9 @@ def train():
     logdir = os.path.join(FLAGS.train_dir, strftime('%Y%m%d%H%M%S', gmtime()))
     if not os.path.exists(logdir):
         os.makedirs(logdir)
-    summary_writer = tf.summary.FileWriter(logdir, graph=sess.graph)
+    # summary_writer = tf.summary.FileWriter(logdir, graph=sess.graph)
+    summary_writer = tf.summary.FileWriter("./output/graph/1")
+    summary_writer.add_graph(sess.graph)
 
     ## restore
     restore(sess)
